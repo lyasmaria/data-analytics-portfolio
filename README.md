@@ -1,2 +1,3 @@
 # data-analytics-portfolio
-Ce portfolio contient une sélection de mes projets d'analyse de données réalisés à l'aide de Python, R et d'autres outils d'analyse et de visualisation. 
+В этом портфолио собрана подборка моих проектов по анализу данных, выполненных с использованием Excel, R, Google Data Studio и других инструментов анализа и визуализации.
+
