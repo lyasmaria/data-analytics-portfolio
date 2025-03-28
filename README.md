@@ -1,4 +1,4 @@
 # data-analytics-portfolio
 Choose your language:
-- **[Version française](./README_fr.md)**  
-- **[Русская версия](./README_ru.md)**  
+- **[Version française](./fr/README_fr.md)**  
+- **[Русская версия](./ru/README_ru.md)**  
