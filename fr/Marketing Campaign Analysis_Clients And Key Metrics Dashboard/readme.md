@@ -1,4 +1,4 @@
-# Анализ маркетинговых кампаний: клиенты и ключевые метрики
-В рамках учебного проекта я разработала дашборд, который анализирует данные пяти маркетинговых кампаний с охватом 2240 клиентов.
+# Analyse des campagnes marketing : clients et indicateurs clés
+Dans le cadre d'un projet de cours, j'ai développé un tableau de bord qui analyse les données de cinq campagnes marketing touchant 2 240 clients.
 
-Целью проекта является *анализ эффективности маркетинговых кампаний* с целью выявления ключевых метрик, распределения клиентов по категориям и создания интерактивного дашборда для мониторинга ключевых метрик в реальном времени. 
+L'objectif du projet est *d'analyser l'efficacité des campagnes marketing afin d'identifier les indicateurs clés*, de répartir les clients en catégories et de créer un tableau de bord interactif pour surveiller les indicateurs clés en temps réel.
