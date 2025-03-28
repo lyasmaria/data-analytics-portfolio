@@ -1,3 +1,4 @@
+# ANALYSE DES FACTEURS DE CONVERSION D'UNE DEMANDE EN PAIEMENT
 **Objectif du projet** : 
 À partir des données d'appels clients, formuler et tester des hypothèses pouvant influencer l'augmentation de la conversion d'une demande au premier paiement.
 
