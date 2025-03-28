@@ -1,7 +1,6 @@
-# Анализ гласных и скорости речи в R
-Этот проект исследует влияние скорости речи и степени раскрытия гласных на их продолжительность во французском языке. 
-Цель состоит в том, чтобы проанализировать, как эти сочетание этих факторов влияет на *оптимизацию голосовых пользовательских интерфейсов* и работу над алгоритмами распознавания речи для разных типов пользователей.
+# Analyse des voyelles et du débit de parole dans R
+Ce projet étudie l’influence du débit de parole et de l’ouverture des voyelles sur la durée des voyelles en français. L’objectif est d’analyser comment cette combinaison de facteurs influence *l’optimisation des interfaces utilisateur vocales* et le travail sur les algorithmes de reconnaissance vocale pour différents types d’utilisateurs.
 
-Инструменты: 
-1. **Excel** (объединение таблиц, обработка, фильтрация данных)
-2. **RStudio** (применение статистических методов: t-test, ANOVA для выявления зависимостей между переменными, визуализации с помощью ggplot2)
+Outils: 
+1. **Excel** (fusion de tableaux, traitement, filtrage de données)
+2. **RStudio** (utilisation de méthodes statistiques : test t, ANOVA pour identifier les dépendances entre les variables, visualisation à l'aide de ggplot2)
