@@ -1,8 +1,8 @@
-Цель проекта:
-На основе данных по звонкам клиентам сформулировать и проверить гипотезы, которые могут повлиять на повышение конверсии из заявки в первую оплату.
+**Objectif du projet** : 
+À partir des données d'appels clients, formuler et tester des hypothèses pouvant influencer l'augmentation de la conversion d'une demande au premier paiement.
 
-Обработка, анализ данных и проверка гипотез была проведена в библиотеке pandas на Python.
+Le traitement des données, l'analyse et les tests d'hypothèses ont été effectués dans la bibliothèque pandas en **Python**.
 
-Ссылка на анализ, интерпретацию результатов и рекомендации для бизнеса в Google Colab: https://colab.research.google.com/drive/1cu6dyLk5TlA2hIqC-RzScbyUaU4XXMzj?usp=sharing
+Lien vers l'analyse, l'interprétation des résultats et les recommandations pour les entreprises dans **Google Colab** : https://colab.research.google.com/drive/1cu6dyLk5TlA2hIqC-RzScbyUaU4XXMzj?usp=sharing
 
-Ссылка на дашборд в DataLens: https://datalens.yandex/jfwojziio0aa5
+Lien vers le tableau de bord dans DataLens : https://datalens.yandex/jfwojziio0aa5
