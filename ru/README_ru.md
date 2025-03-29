@@ -4,4 +4,4 @@
 2. *[Marketing Campaign Analysis_Clients And Key Metrics Dashboard](https://github.com/lyasmaria/data-analytics-portfolio/tree/main/ru/Marketing%20Campaign%20Analysis_Clients%20And%20Key%20Metrics%20Dashboard)* - анализ данных пяти маркетинговых кампаний с охватом 2240 клиентов (обработка и анализ данных в Excel, визуализация в Google Data Studio)
 3. *[Vowel and Speech Rate Analysis with R](https://github.com/lyasmaria/data-analytics-portfolio/tree/main/ru/Vowel%20and%20Speech%20Rate%20Analysis%20with%20R)* - анализ влияния скорости речи и типа гласных на оптимизацию голосовых пользовательских интерфейсов (обработка и анализ данных в RStudio, визуализация в ggplot2)
 
-Переходите по папкам проектов, чтобы ознакомиться с ними подробнее :)
+Кликните на названия проектов, чтобы ознакомиться с ними подробнее :)
