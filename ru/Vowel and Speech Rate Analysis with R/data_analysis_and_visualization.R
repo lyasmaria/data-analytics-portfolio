@@ -1,29 +1,29 @@
 setwd("C:/Users/lyasm/Documents/RStudio/Dossier")
-# on installe la bibliothèque pour travailler avec .xlsx :
+# устанавливаем библиотеку для работы с .xlsx
 install.packages("readxl")  
 library(readxl)
 
-# on importe les données :
+# импортируем данные 
 data1 = read_excel("test_formants_phrases.xlsx")
 data2 = read_excel("test_formants_presentation.xlsx")
 
-## LE TRAITEMENT ET LE NETTOYAGE DES DONNEES :
-# on suprimme la colonne inutile dans data1 :
+## ОБРАБОТКА И ОЧИСТКА ДАННЫХ 
+# удаляем ненужный столбец из data1
 data1$...1 = NULL
 
-# on vérifie les types de données :
+# проверяем типы данных 
 str(data1)
 str(data2)
 
-# on examine s'il y a des occurrences vides :
+# проверяем на пустые значения 
 sum(is.na(data1))
 sum(is.na(data2))
 
-# on regarde lesquelles sont vides :
+# смотрим, какие именно пустые 
 which(is.na(data2))
 data2[!complete.cases(data2), ]
 
-# il n'y en a que trois, on peut les supprimer. on crée un nouveau tableau à la base de data2 :
+# их всего три, можно удалить. создаем новую таблицу на базе data2 
 data2_clean = data2[complete.cases(data2), ]
 
 colnames(data1)[colnames(data1) == "DURÉE"] = "DUREE"
@@ -32,83 +32,83 @@ colnames(data2_clean)[colnames(data2_clean) == "DURÉE"] = "DUREE"
 summary(data1$DUREE)
 summary(data2_clean$DUREE)
 
-# data2_clean comprend plus de données que data1. il est nécessaire d'équilibrer le nombre de données pour que l'analyse soit pertinente.
-# on définie combien de lignes on doit avoir au data2 :
+# в data2_clean больше данных, чем в data1. необходимо сбалансировать количество данных для анализа 
+# определяем, сколько строк должно быть в data2
 needed_rows = nrow(data1)  
 
-# on supprime les lignes supplémentaires au hasard :
+# удаляем лишние строки случайным образом 
 set.seed(42)
 data2_balanced = data2[sample(nrow(data2), needed_rows), ] 
 
-# on vérifie le nombre de lignes (on nécessite 163)
+# проверяем количество строк (нам нужно 163) 
 nrow(data2_balanced) 
 
 
-## LA VISUALISATION :
-# on observe les valeurs aberrantes dans deux tableaux :
+## ВИЗУАЛИЗАЦИЯ:
+# наблюдаются выбросы в двух таблицах 
 ggplot(data1, aes(x = APERTURE, y = DUREE)) +
   geom_boxplot() +
-  labs(title = "Boxplot de la durée pour data1", x = "Aperture", y = "Durée")
+  labs(title = "Duration boxplot for data1", x = "Aperture", y = "Duration")
 
 ggplot(data2_balanced, aes(x = APERTURE, y = DUREE)) +
   geom_boxplot() +
-  labs(title = "Boxplot de la durée pour data2", x = "Aperture", y = "Durée")
+  labs(title = "Duration boxplot for data2", x = "Aperture", y = "Duration")
 
 
-# on crée un histogramme "la distribution de la durée" pour data1:
+# мы создаем гистограмму «распределения длительности» для data1:
 ggplot(data1, aes(x = DUREE)) +
   geom_histogram(binwidth = 0.01, color = "black", fill = "lightblue", alpha = 0.7) +
-  labs(title = "Distribution de la durée (débit lent)", 
-       x = "Durée (en secondes)", y = "Fréquence")
+  labs(title = "Duration distribution (slow speech rate)",
+      x = "Duration (in seconds)", y = "Frequency")
 
-# et pour data2:
+# и для data2:
 ggplot(data2_balanced, aes(x = DUREE)) +
   geom_histogram(binwidth = 0.01, color = "black", fill = "lightblue", alpha = 0.7) +
-  labs(title = "Distribution de la durée (débit rapide)", 
-       x = "Durée (en secondes)", y = "Fréquence")
+  labs(title = "Duration distribution (fast speech rate)",
+      x = "Duration (in seconds)", y = "Frequency")
 
 
-# on transforme la colonne APERTURE en facteur pour faire un histogramme :
+# мы преобразуем столбец APERTURE в коэффициент для построения гистограммы
 combined_data$APERTURE = c(data1$APERTURE, data2_balanced$APERTURE)
 levels(combined_data$APERTURE)
 str(combined_data$APERTURE)
 combined_data$APERTURE = as.factor(combined_data$APERTURE)
 
-# on fait un histogramme pour voir la distribution des niveaux d'aperture :
+# составляем гистограмму, чтобы увидеть распределение уровней APERTURE
 ggplot(combined_data, aes(x = APERTURE)) +
   geom_bar(fill = "blue") +
-  labs(title = "Distribution des niveaux d'aperture (données combinées)", 
-       x = "Aperture", y = "Fréquence")
+  labs(title = "Distribution of aperture levels (combined data)",
+      x = "Aperture", y = "Frequency")
 
-# on fait un histogramme pour voir la distribution de la durée selon l'aperture :
+# составляем гистограмму, чтобы увидеть распределение длительности по APERTURE
 ggplot(combined_data, aes(x = DUREE, fill = APERTURE)) +
   geom_histogram(binwidth = 0.02, position = "dodge", color = "black", alpha = 0.7) +
-  labs(title = "Distribution de la durée selon l'aperture (données combinées)", 
-       x = "Durée", y = "Fréquence") +
+  labs(title = "Distribution of duration by aperture (combined data)",
+      x = "Duration", y = "Frequency") +
   theme_minimal()
 
-# on fait un histogramme pour voir la distribution de la durée selon le débit :
+# составляем гистограмму, чтобы увидеть распределение по скорости речи
 ggplot(combined_data, aes(x = DUREE, fill = DEBIT)) +
   geom_histogram(binwidth = 0.01, position = "dodge", color = "black", alpha = 0.7) +
-  labs(title = 'Distribution de la durée selon le débit (données combinées)', 
-       x = 'Durée', y = 'Fréquence') +
+  labs(title = 'Duration distribution by speech rate (combined data)',
+      x = 'Duration', y = 'Frequency') +
   scale_fill_manual(values = c('blue', 'red'), 
                     labels = c('Débit lent', 'Débit rapide'))
 
-# on fait un scatterplot pour aperture + débit :
+# делаем диаграмму рассеяния для aperture + duration :
 ggplot(combined_data, aes(x = APERTURE, y = DUREE, color = DEBIT)) +
   geom_point() +
-  labs(title = "Durée en fonction de l'aperture et du débit 
-       (données combinées)", 
-       x = "Aperture", y = "Durée (en secondes)") +
+  labs(title = "Duration as a function of aperture and flow rate
+      (combined data)",
+      x = "Aperture", y = "Duration (in seconds)") +
   scale_color_manual(values = c("blue", "red")) +
   theme_minimal()
 
 
-# on fait l'ANOVA à deux facteurs :
+# проводим двухфакторный тест ANOVA :
 aov_result = aov(DUREE ~ APERTURE * DEBIT, data = combined_data)
 summary(aov_result)
 
-# on fait le test-t :
+# проводим t-test :
 t_test_debit = t.test(DUREE ~ DEBIT, data = combined_data)
 
